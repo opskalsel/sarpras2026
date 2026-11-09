@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOP SARPRAS 2026/2027 — Panduan Pengajuan Sarana &amp; Prasarana</title>
+<meta name="description" content="Panduan menambah dan mengubah data Sarana &amp; Prasarana (Sarpras) melalui laman sp.datadik.kemendikdasmen.go.id">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-950:#071b30;
+    --navy-900:#0a2540;
+    --navy-800:#0e3a63;
+    --blue-600:#1671c9;
+    --blue-500:#2f8fe0;
+    --blue-50:#eaf3fc;
+    --red-600:#d0272f;
+    --red-50:#fdecec;
+    --amber-500:#f1a417;
+    --ink-900:#16212e;
+    --ink-600:#3e4c5c;
+    --ink-500:#5b6b7d;
+    --paper:#f5f8fb;
+    --white:#ffffff;
+    --line:#dde5ee;
+    --radius:14px;
+    --shadow:0 10px 30px -12px rgba(10,37,64,0.25);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    color:var(--ink-900);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Poppins',sans-serif;
+    margin:0 0 .5em;
+    color:var(--navy-900);
+    line-height:1.25;
+  }
+  a{color:var(--blue-600);text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .container{
+    width:100%;
+    max-width:1140px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  code, .mono{
+    font-family:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+  }
+  :focus-visible{
+    outline:3px solid var(--amber-500);
+    outline-offset:2px;
+  }
+
+  /* ---------- Top utility bar ---------- */
+  .topbar{
+    background:var(--navy-950);
+    color:#b7c8dc;
+    font-size:12.5px;
+  }
+  .topbar .container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:7px;
+    padding-bottom:7px;
+    flex-wrap:wrap;
+    gap:6px;
+  }
+  .topbar .flag-stripe{display:flex;gap:4px;align-items:center;}
+  .topbar .flag-stripe span{
+    width:16px;height:3px;border-radius:2px;background:var(--red-600);
+  }
+  .topbar .flag-stripe span:nth-child(2){background:#fff;}
+  .topbar small{color:#8fa5bd;}
+
+  /* ---------- Navbar ---------- */
+  .navbar{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--navy-900);
+    box-shadow:0 2px 14px rgba(0,0,0,0.18);
+  }
+  .navbar .container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:72px;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:#fff;
+  }
+  .brand .mark{
+    width:42px;height:42px;
+    border-radius:10px;
+    background:linear-gradient(145deg,var(--blue-500),var(--blue-600));
+    display:flex;align-items:center;justify-content:center;
+    flex:none;
+  }
+  .brand .mark svg{width:24px;height:24px;}
+  .brand .text-block{display:flex;flex-direction:column;line-height:1.15;}
+  .brand .title{font-family:'Poppins',sans-serif;font-weight:700;font-size:16.5px;letter-spacing:.2px;}
+  .brand .subtitle{font-size:11.5px;color:#9fb4cc;font-weight:500;}
+
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .nav-links a{
+    color:#dce7f3;
+    font-size:14.5px;
+    font-weight:600;
+    padding:9px 14px;
+    border-radius:8px;
+    transition:background .15s ease,color .15s ease;
+  }
+  .nav-links a:hover{background:rgba(255,255,255,0.08);color:#fff;}
+  .nav-links .cta{
+    background:var(--blue-600);
+    color:#fff !important;
+    margin-left:6px;
+  }
+  .nav-links .cta:hover{background:var(--blue-500);}
+
+  .nav-toggle{
+    display:none;
+    width:42px;height:42px;
+    border-radius:8px;
+    border:1px solid rgba(255,255,255,0.2);
+    background:transparent;
+    cursor:pointer;
+    position:relative;
+  }
+  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
+    content:'';
+    position:absolute;
+    left:10px;right:10px;
+    height:2px;
+    background:#fff;
+    transition:transform .2s ease, opacity .2s ease;
+  }
+  .nav-toggle span{top:20px;}
+  .nav-toggle span::before{top:-7px;}
+  .nav-toggle span::after{top:7px;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:
+      radial-gradient(1100px 480px at 85% -10%, rgba(47,143,224,0.35), transparent 60%),
+      linear-gradient(160deg,var(--navy-950), var(--navy-800) 65%);
+    color:#fff;
+    padding:64px 0 96px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .container{
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:48px;
+    align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.18);
+    color:#cfe1f5;
+    font-size:12.5px;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    padding:7px 14px;
+    border-radius:999px;
+    margin-bottom:18px;
+  }
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--amber-500);}
+  .hero h1{
+    color:#fff;
+    font-size:clamp(30px,4vw,44px);
+    font-weight:800;
+    letter-spacing:-.01em;
+    max-width:640px;
+  }
+  .hero p.lead{
+    color:#c7d7ea;
+    font-size:16.5px;
+    max-width:560px;
+    margin:0 0 26px;
+  }
+  .hero .btn-row{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Inter',sans-serif;
+    font-weight:700;
+    font-size:14.5px;
+    padding:13px 20px;
+    border-radius:10px;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .12s ease, box-shadow .12s ease, background .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--blue-600);color:#fff;box-shadow:0 8px 22px -8px rgba(22,113,201,0.7);}
+  .btn-primary:hover{background:var(--blue-500);}
+  .btn-ghost{background:rgba(255,255,255,0.06);color:#fff;border-color:rgba(255,255,255,0.25);}
+  .btn-ghost:hover{background:rgba(255,255,255,0.14);}
+
+  /* Signature element: browser mock card */
+  .portal-card{
+    background:#fff;
+    border-radius:16px;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.45);
+    overflow:hidden;
+    color:var(--ink-900);
+    transform:rotate(1.2deg);
+  }
+  .portal-card .chrome{
+    background:#e9edf2;
+    padding:10px 14px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    border-bottom:1px solid #d7dee6;
+  }
+  .chrome .dots{display:flex;gap:6px;}
+  .chrome .dots span{width:9px;height:9px;border-radius:50%;background:#c3ccd6;}
+  .chrome .urlbar{
+    flex:1;
+    background:#fff;
+    border-radius:7px;
+    padding:7px 12px;
+    font-size:12.5px;
+    color:var(--ink-600);
+    display:flex;
+    align-items:center;
+    gap:7px;
+    border:1px solid #d7dee6;
+  }
+  .chrome .urlbar svg{width:13px;height:13px;flex:none;color:#2e9c4f;}
+  .portal-card .body{padding:22px 22px 24px;}
+  .portal-card .body .label{
+    font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--blue-600);
+  }
+  .portal-card .body h3{margin:6px 0 8px;font-size:19px;}
+  .portal-card .body p{margin:0 0 16px;color:var(--ink-500);font-size:14px;}
+  .role-chip{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--blue-50);
+    color:var(--blue-600);
+    font-weight:700;font-size:13px;
+    padding:8px 12px;border-radius:9px;
+    border:1px solid #cfe2f7;
+  }
+  .role-chip svg{width:15px;height:15px;}
+
+  /* ---------- Alert / notice band ---------- */
+  .notice-band{
+    margin-top:-46px;
+    position:relative;
+    z-index:5;
+  }
+  .notice{
+    background:#fff;
+    border:1px solid var(--line);
+    border-left:5px solid var(--red-600);
+    border-radius:12px;
+    box-shadow:var(--shadow);
+    padding:20px 24px;
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+  }
+  .notice .icon{
+    flex:none;width:34px;height:34px;border-radius:9px;
+    background:var(--red-50);color:var(--red-600);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .notice .icon svg{width:18px;height:18px;}
+  .notice h4{margin:0 0 4px;color:var(--red-600);font-size:15px;}
+  .notice p{margin:0;color:var(--ink-600);font-size:14.5px;}
+  .notice p strong{color:var(--ink-900);}
+
+  /* ---------- Section basics ---------- */
+  section{padding:80px 0;}
+  .section-head{
+    max-width:640px;
+    margin:0 auto 44px;
+    text-align:center;
+  }
+  .section-head .tag{
+    display:inline-block;
+    font-size:12.5px;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--blue-600);
+    background:var(--blue-50);
+    padding:6px 14px;
+    border-radius:999px;
+    margin-bottom:14px;
+  }
+  .section-head h2{font-size:clamp(24px,3vw,32px);}
+  .section-head p{color:var(--ink-500);font-size:15.5px;margin:10px 0 0;}
+
+  /* ---------- Concepts ---------- */
+  .concepts-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+  }
+  .concept-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:26px;
+    transition:box-shadow .15s ease, transform .15s ease;
+  }
+  .concept-card:hover{box-shadow:var(--shadow);transform:translateY(-3px);}
+  .concept-card .top-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+  .concept-card .icon{
+    width:44px;height:44px;border-radius:10px;
+    background:var(--blue-50);color:var(--blue-600);
+    display:flex;align-items:center;justify-content:center;flex:none;
+  }
+  .concept-card .icon svg{width:22px;height:22px;}
+  .concept-card .num{
+    font-family:'Poppins',sans-serif;font-weight:700;color:#c7d3e0;font-size:13px;
+  }
+  .concept-card h3{font-size:17.5px;margin:0 0 8px;}
+  .concept-card p{color:var(--ink-600);font-size:14.5px;margin:0;}
+  .concept-card .example{
+    margin-top:12px;
+    display:inline-block;
+    background:var(--paper);
+    border:1px dashed var(--line);
+    padding:6px 10px;
+    border-radius:8px;
+    font-size:12.5px;
+    color:var(--ink-500);
+  }
+
+  /* ---------- Steps ---------- */
+  .steps-wrap{position:relative;max-width:840px;margin:0 auto;}
+  .step{
+    display:grid;
+    grid-template-columns:56px 1fr;
+    gap:20px;
+    position:relative;
+    padding-bottom:34px;
+  }
+  .step:last-child{padding-bottom:0;}
+  .step::before{
+    content:'';
+    position:absolute;
+    left:27px;
+    top:56px;
+    bottom:0;
+    width:2px;
+    background:var(--line);
+  }
+  .step:last-child::before{display:none;}
+  .step .num-circle{
+    width:56px;height:56px;
+    border-radius:50%;
+    background:var(--navy-900);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:18px;
+    flex:none;
+    z-index:1;
+    box-shadow:0 6px 14px -4px rgba(10,37,64,0.4);
+  }
+  .step-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px 22px;
+  }
+  .step-card h4{font-size:16px;margin:0 0 8px;}
+  .step-card p{margin:0 0 6px;color:var(--ink-600);font-size:14.5px;}
+  .step-card p:last-child{margin-bottom:0;}
+  .kbd{
+    display:inline-block;
+    font-family:'SFMono-Regular',Consolas,monospace;
+    font-size:12px;
+    background:#eef2f7;
+    border:1px solid #d7dee6;
+    border-bottom-width:2px;
+    padding:1px 7px;
+    border-radius:5px;
+    color:var(--ink-700);
+  }
+  .menu-path{
+    font-weight:700;color:var(--blue-600);
+  }
+  .step-card .callout{
+    margin-top:12px;
+    background:var(--red-50);
+    border:1px solid #f7cfd2;
+    border-left:4px solid var(--red-600);
+    border-radius:9px;
+    padding:12px 14px;
+    font-size:13.5px;
+    color:#8a2027;
+  }
+  .step-card .callout strong{display:block;margin-bottom:3px;color:var(--red-600);font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;}
+
+  /* ---------- Help / contact band ---------- */
+  .help-band{
+    background:linear-gradient(135deg,var(--navy-900),var(--navy-800));
+    color:#fff;
+    border-radius:20px;
+    padding:40px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .help-band h3{color:#fff;font-size:22px;margin:0 0 6px;}
+  .help-band p{color:#c7d7ea;margin:0;font-size:14.5px;max-width:480px;}
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--navy-950);
+    color:#9fb2c9;
+    padding-top:60px;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1fr;
+    gap:32px;
+    padding-bottom:40px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .footer-grid h5{
+    color:#fff;
+    font-family:'Poppins',sans-serif;
+    font-size:13px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    margin:0 0 16px;
+  }
+  .footer-grid ul{list-style:none;margin:0;padding:0;}
+  .footer-grid li{margin-bottom:10px;}
+  .footer-grid a{color:#9fb2c9;font-size:14px;}
+  .footer-grid a:hover{color:#fff;}
+  .footer-brand .brand{margin-bottom:14px;}
+  .footer-brand p{font-size:13.5px;color:#8296ac;max-width:280px;}
+  .footer-bottom{
+    padding:22px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+    font-size:12.5px;
+    color:#71879e;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:920px){
+    .hero .container{grid-template-columns:1fr;}
+    .portal-card{transform:none;max-width:460px;}
+    .concepts-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:720px){
+    .nav-links{
+      position:absolute;
+      top:72px;left:0;right:0;
+      background:var(--navy-900);
+      flex-direction:column;
+      align-items:stretch;
+      padding:10px 20px 20px;
+      display:none;
+      box-shadow:0 12px 20px -10px rgba(0,0,0,0.4);
+    }
+    .nav-links.open{display:flex;}
+    .nav-links a{width:100%;}
+    .nav-toggle{display:block;}
+    .footer-grid{grid-template-columns:1fr;}
+    .notice{flex-direction:column;}
+    .help-band{padding:28px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- Top utility bar -->
+<div class="topbar">
+  <div class="container">
+    <span>Direktorat Jenderal PAUD, Dikdas, dan Dikmen &mdash; Kementerian Pendidikan Dasar dan Menengah</span>
+    <div class="flag-stripe" aria-hidden="true"><span></span><span></span><span></span><small style="margin-left:8px;">Panduan Internal Satuan Pendidikan</small></div>
+  </div>
+</div>
+
+<!-- Navbar -->
+<header class="navbar">
+  <div class="container">
+    <a href="#top" class="brand" style="text-decoration:none;">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/><path d="M9 11h.01M15 11h.01M9 7h.01M15 7h.01"/></svg>
+      </span>
+      <span class="text-block">
+        <span class="title">SOP SARPRAS 2026/2027</span>
+        <span class="subtitle">Panduan Pengajuan Sarana &amp; Prasarana</span>
+      </span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false"><span></span></button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#konsep">Konsep Dasar</a>
+      <a href="#langkah">Langkah-Langkah</a>
+      <a href="#bantuan">Bantuan</a>
+      <a class="cta" href="https://sp.datadik.kemendikdasmen.go.id" target="_blank" rel="noopener">Buka Portal Sarpras</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="top">
+  <div class="container">
+    <div>
+      <span class="eyebrow"><span class="dot"></span> Berlaku Tahun 2026</span>
+      <h1>Panduan Menambah &amp; Mengubah Data Sarpras</h1>
+      <p class="lead">Segala penambahan maupun perubahan data Sarana dan Prasarana (Sarpras) satuan pendidikan hanya dapat dilakukan melalui satu laman resmi, menggunakan akun Kepala Sekolah.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://sp.datadik.kemendikdasmen.go.id" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+          Buka sp.datadik.kemendikdasmen.go.id
+        </a>
+        <a class="btn btn-ghost" href="#langkah">
+          Lihat Langkah-Langkah
+        </a>
+      </div>
+    </div>
+
+    <div class="portal-card" role="group" aria-label="Contoh alamat laman portal">
+      <div class="chrome">
+        <div class="dots"><span></span><span></span><span></span></div>
+        <div class="urlbar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span class="mono">sp.datadik.kemendikdasmen.go.id</span>
+        </div>
+      </div>
+      <div class="body">
+        <span class="label">Satu-satunya laman resmi</span>
+        <h3>Manajemen Sekolah (Sarpras)</h3>
+        <p>Login menggunakan akun Kepala Sekolah, lalu buka menu <span class="menu-path">Sarpras</span> untuk mengajukan penambahan atau perubahan data ruang, bangunan, dan tanah.</p>
+        <span class="role-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Akun: Kepala Sekolah
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Notice band -->
+<div class="container notice-band">
+  <div class="notice">
+    <span class="icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg>
+    </span>
+    <div>
+      <h4>Sebelum mulai, perhatikan hal berikut</h4>
+      <p>Jika menu di sisi kiri laman tidak terlihat setelah login, perbesar/perkecil tampilan (zoom) browser dengan menekan <strong>CTRL</strong> + <strong>-/+</strong>. Pengajuan Sarpras juga <strong>hanya dapat dibuat satu kali</strong>, jadi ajukan sekaligus untuk seluruh rencana penambahan dan perubahan data.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Konsep -->
+<section id="konsep">
+  <div class="container">
+    <div class="section-head">
+      <span class="tag">Pahami Dulu</span>
+      <h2>Konsepnya Dulu</h2>
+      <p>Empat istilah dasar ini perlu dipahami sebelum mengajukan perubahan, agar data yang diinput sesuai dengan kondisi sebenarnya di lapangan.</p>
+    </div>
+
+    <div class="concepts-grid">
+
+      <div class="concept-card">
+        <div class="top-row">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 12h16"/><path d="M12 4v16"/></svg>
+          </span>
+          <span class="num">01</span>
+        </div>
+        <h3>Tambah Ruang</h3>
+        <p>Berlaku jika dalam satu bangunan yang semula sudah memiliki 3 ruang, kemudian ditambahkan 1 ruang lagi &mdash; namun tetap berada dalam bangunan/gedung yang sama.</p>
+        <span class="example">Contoh: Gedung A (3 ruang) &rarr; Gedung A (4 ruang)</span>
+      </div>
+
+      <div class="concept-card">
+        <div class="top-row">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V10l4-4 4 4v11"/><path d="M13 21v-7l4-3 4 3v7"/></svg>
+          </span>
+          <span class="num">02</span>
+        </div>
+        <h3>Tambah Bangunan</h3>
+        <p>Berlaku jika ruang X yang ditambahkan berdiri sendiri, tidak menyatu dengan bangunan yang sudah ada. Penyebutannya menjadi &ldquo;Tambah gedung W digunakan untuk ruang X&rdquo;.</p>
+        <span class="example">Contoh: Gedung W (baru) &rarr; berisi ruang X</span>
+      </div>
+
+      <div class="concept-card">
+        <div class="top-row">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41 12 22l-9-9V4h9l8.59 8.59a2 2 0 0 1 0 2.82Z"/><path d="M7 7h.01"/></svg>
+          </span>
+          <span class="num">03</span>
+        </div>
+        <h3>Ganti Nama Ruang</h3>
+        <p>Berlaku jika hanya mengubah nama/penyebutan sebuah ruang, tanpa mengubah bangunan maupun fungsinya.</p>
+        <span class="example">Contoh: Ruang A &rarr; diubah menjadi X-1</span>
+      </div>
+
+      <div class="concept-card">
+        <div class="top-row">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 4.5-9 4.5-9-4.5Z"/><path d="m3 11.5 9 4.5 9-4.5"/><path d="m3 16.5 9 4.5 9-4.5"/></svg>
+          </span>
+          <span class="num">04</span>
+        </div>
+        <h3>Ruang &ne; Rombel</h3>
+        <p>Relasi &ldquo;Ruang dengan Bangunan/Gedung&rdquo; dan relasi &ldquo;Ruang dengan Rombongan Belajar (Rombel)&rdquo; adalah dua konsep yang berbeda dan tidak boleh disamakan saat menginput data.</p>
+        <span class="example">Fisik bangunan &ne; penempatan rombel</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Langkah-langkah -->
+<section id="langkah" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="container">
+    <div class="section-head">
+      <span class="tag">Prosedur</span>
+      <h2>Langkah-Langkah Menambah &amp; Mengubah Sarpras</h2>
+      <p>Ikuti urutan berikut secara berurutan di laman <span class="menu-path">sp.datadik.kemendikdasmen.go.id</span> menggunakan akun Kepala Sekolah.</p>
+    </div>
+
+    <div class="steps-wrap">
+
+      <div class="step">
+        <div class="num-circle">1</div>
+        <div class="step-card">
+          <h4>Bila menu tidak terlihat, zoom out</h4>
+          <p>Jika setelah login menu di sisi kiri laman Kepala Sekolah tidak terlihat, perkecil tampilan browser dengan menekan <span class="kbd">CTRL</span> dan <span class="kbd">-/+</span>.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num-circle">2</div>
+        <div class="step-card">
+          <h4>Buka menu Pengajuan</h4>
+          <p>Klik menu <span class="menu-path">Sarpras &rarr; Pengajuan</span>. Pada laman &ldquo;Pengajuan Sarpras&rdquo;, klik tombol <strong>&ldquo;Pengajuan Baru&rdquo;</strong>.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num-circle">3</div>
+        <div class="step-card">
+          <h4>Isi keterangan pengajuan</h4>
+          <p>Pada kolom Keterangan, isi apa yang diajukan &mdash; misalnya jika ingin menambah dan mengubah data ruang, isi dengan <em>&ldquo;Tambah dan Ubah Sarpras&rdquo;</em>. Lalu klik <strong>&ldquo;SIMPAN&rdquo;</strong>.</p>
+          <div class="callout">
+            <strong>Catatan Penting</strong>
+            Pengajuan hanya dapat dilakukan satu kali. Ajukan sekaligus untuk seluruh rencana, kemudian lakukan penambahan dan perubahan data ruang sampai selesai.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num-circle">4</div>
+        <div class="step-card">
+          <h4>Cek Daftar Pengajuan</h4>
+          <p>Pengajuan yang berhasil disimpan akan muncul pada <span class="menu-path">Daftar Pengajuan</span>.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num-circle">5</div>
+        <div class="step-card">
+          <h4>Mengubah data ruang</h4>
+          <p>Jika ingin mengubah ruang &mdash; misalnya input ulang ukuran ruang &mdash; klik menu <span class="menu-path">Sarpras &rarr; Ruang</span>, lalu klik tombol <strong>&ldquo;Ajukan Perubahan&rdquo;</strong> di sisi kanan daftar &ldquo;Jenis Prasarana&rdquo; yang ingin diubah. Klik <strong>&ldquo;SIMPAN RUANG&rdquo;</strong> setelah semua perubahan selesai diinputkan.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num-circle">6</div>
+        <div class="step-card">
+          <h4>Periksa detail usulan</h4>
+          <p>Data penambahan dan perubahan sarpras akan muncul di menu <span class="menu-path">Daftar Pengajuan</span>. Untuk memeriksa usulan yang sudah dibuat, klik <strong>&ldquo;Detail&rdquo;</strong> &mdash; daftar usulan akan tampil pada bagian &ldquo;Detail Sarpras Tambah dan Ubah Sarpras&rdquo;.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num-circle">7</div>
+        <div class="step-card">
+          <h4>Periksa per kategori</h4>
+          <p>Klik <strong>&ldquo;Tanah&rdquo;</strong> untuk memeriksa usulan tanah, <strong>&ldquo;Bangunan&rdquo;</strong> untuk usulan bangunan, dan <strong>&ldquo;Ruang&rdquo;</strong> untuk usulan ruang. Klik <strong>&ldquo;TAMPILKAN DOKUMEN&rdquo;</strong> untuk memeriksa dokumen pendukung, atau <strong>&ldquo;BATALKAN AJUAN&rdquo;</strong> bila ingin membatalkan.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num-circle">8</div>
+        <div class="step-card">
+          <h4>Kirim pengajuan</h4>
+          <p>Bila semua data sudah sesuai, klik <strong>&ldquo;KIRIM PENGAJUAN&rdquo;</strong>. Selanjutnya, hubungi admin Dinas Pendidikan dan BPMP untuk proses verifikasi.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num-circle">9</div>
+        <div class="step-card">
+          <h4>Tarik data ke Dapodik lokal</h4>
+          <p>Jika pengajuan sudah disetujui (diverifikasi), lakukan tarik data ke aplikasi Dapodik lokal di sekolah.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num-circle">10</div>
+        <div class="step-card">
+          <h4>Selesai &amp; bersihkan pengajuan</h4>
+          <p>Setelah data turun ke Dapodik lokal dan sudah sesuai, pengajuan yang ada di sp.datadik.kemendikdasmen.go.id dapat dihapus.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Bantuan -->
+<section id="bantuan">
+  <div class="container">
+    <div class="help-band">
+      <div>
+        <h3>Masih ada kendala saat mengajukan Sarpras?</h3>
+        <p>Hubungi admin Dinas Pendidikan atau BPMP wilayah Anda untuk proses verifikasi, atau tinjau kembali langkah-langkah di atas sebelum mengirim pengajuan.</p>
+      </div>
+      <a class="btn btn-primary" href="https://sp.datadik.kemendikdasmen.go.id" target="_blank" rel="noopener">Buka Portal Sarpras</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <span class="mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg>
+          </span>
+          <span class="text-block">
+            <span class="title">SOP SARPRAS 2026/2027</span>
+            <span class="subtitle">Panduan Pengajuan Sarana &amp; Prasarana</span>
+          </span>
+        </div>
+        <p>Dokumen panduan internal untuk membantu operator dan Kepala Sekolah dalam mengajukan penambahan maupun perubahan data Sarpras pada sistem Dapodik.</p>
+      </div>
+
+      <div>
+        <h5>Portal Terkait</h5>
+        <ul>
+          <li><a href="https://sp.datadik.kemendikdasmen.go.id" target="_blank" rel="noopener">Manajemen Sekolah (Sarpras)</a></li>
+          <li><a href="https://dapo.kemendikdasmen.go.id" target="_blank" rel="noopener">Beranda Dapodik</a></li>
+          <li><a href="http://localhost:5774/" target="_blank" rel="noopener">Manajemen Dapodik</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Panduan</h5>
+        <ul>
+          <li><a href="#konsep">Konsep Dasar Sarpras</a></li>
+          <li><a href="#langkah">Langkah-Langkah Pengajuan</a></li>
+          <li><a href="#bantuan">Bantuan &amp; Verifikasi</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Catatan</h5>
+        <ul>
+          <li>Gunakan akun Kepala Sekolah</li>
+          <li>Pengajuan hanya bisa 1x</li>
+          <li>Tarik data setelah diverifikasi</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>Dokumen panduan tidak resmi &middot; dibuat untuk memudahkan operator satuan pendidikan.</span>
+      <span>&copy; 2026 SOP Sarpras</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+</body>
+</html>
