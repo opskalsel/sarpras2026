@@ -422,6 +422,234 @@
   }
   .step-card .callout strong{display:block;margin-bottom:3px;color:var(--red-600);font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;}
 
+  /* ---------- Persyaratan Dokumen ---------- */
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+  #persyaratan{padding-top:0;}
+  .doc-stack{max-width:900px;margin:0 auto;display:grid;gap:26px;}
+  .doc-card{
+    --c:#0f9d8a;--c-soft:#e3f6f3;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .doc-card.bangunan{--c:#e8890c;--c-soft:#fdf0dc;}
+  .doc-card.ruang{--c:#6d3fb5;--c-soft:#efe8f9;}
+  .doc-card-head{
+    background:var(--c);
+    color:#fff;
+    padding:16px 22px;
+  }
+  .doc-card-head h3{margin:0;color:#fff;font-size:17px;letter-spacing:.02em;text-transform:uppercase;}
+  .doc-table-wrap{overflow-x:auto;}
+  .doc-table{width:100%;min-width:520px;border-collapse:collapse;font-size:14.5px;}
+  .doc-table th{
+    background:var(--c-soft);
+    color:var(--navy-900);
+    font-family:'Poppins',sans-serif;
+    font-size:13px;
+    font-weight:600;
+    padding:11px 12px;
+    text-align:center;
+    border-bottom:2px solid var(--c);
+  }
+  .doc-table th:nth-child(2){text-align:left;}
+  .doc-table td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:center;vertical-align:middle;}
+  .doc-table tr:last-child td{border-bottom:0;}
+  .doc-table td:first-child{width:52px;font-weight:700;color:var(--ink-500);}
+  .doc-table td:nth-child(2){text-align:left;font-weight:600;color:var(--ink-900);}
+  .doc-table td.yes{background:var(--c-soft);}
+  .doc-table td.no{color:#9aa8b8;font-weight:700;}
+  .chk{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:26px;height:26px;border-radius:50%;
+    background:#1fa855;color:#fff;
+  }
+  .chk svg{width:15px;height:15px;}
+  .doc-notes{
+    max-width:900px;margin:26px auto 0;
+    background:var(--blue-50);
+    border:1px solid #cfe2f6;
+    border-left:4px solid var(--blue-600);
+    border-radius:12px;
+    padding:18px 22px;
+  }
+  .doc-notes h4{margin:0 0 8px;font-size:15px;color:var(--navy-900);}
+  .doc-notes ul{margin:0;padding-left:20px;color:var(--ink-600);font-size:14.5px;}
+  .doc-notes li{margin-bottom:5px;}
+  .doc-notes li:last-child{margin-bottom:0;}
+  .doc-legend{
+    max-width:900px;margin:18px auto 0;
+    display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;
+    font-weight:600;color:var(--navy-900);font-size:14.5px;
+  }
+  .doc-legend span{display:inline-flex;align-items:center;gap:8px;}
+  .doc-legend .dash{color:#9aa8b8;font-weight:700;font-size:18px;line-height:1;}
+
+  @media (max-width:720px){
+    .doc-card-head{padding:14px 16px;}
+    .doc-card-head h3{font-size:14.5px;}
+    .doc-table{min-width:0;font-size:11.5px;}
+    .doc-table th{font-size:9.5px;padding:8px 2px;}
+    .doc-table td{padding:8px 2px;}
+    .doc-table td:first-child{width:24px;}
+    .doc-table td:nth-child(2){padding-left:4px;}
+    .chk{width:22px;height:22px;}
+    .chk svg{width:13px;height:13px;}
+  }
+
+  /* ---------- Halaman Catatan Sarpras ---------- */
+  [hidden]{display:none !important;}
+  .nav-links a.active{background:rgba(255,255,255,0.14);color:#fff;}
+  .cat-hero{
+    background:linear-gradient(160deg,var(--navy-950),var(--navy-800) 65%);
+    color:#fff;
+    padding:56px 0 64px;
+  }
+  .cat-hero .container{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;}
+  .cat-hero h1{color:#fff;font-size:clamp(30px,5vw,46px);margin:0 0 8px;}
+  .cat-hero h1 span{color:#ffd84d;}
+  .cat-hero p{margin:0;color:#c3d3e6;font-size:17px;max-width:560px;}
+  .sticky-note{
+    background:#ffe27a;color:#4a3b00;
+    font-weight:700;font-size:14.5px;line-height:1.4;
+    padding:14px 20px;border-radius:6px;
+    transform:rotate(-3deg);
+    box-shadow:0 10px 24px -10px rgba(0,0,0,.5);
+    max-width:230px;
+  }
+  .cat-jump{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;}
+  .cat-jump a{
+    color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.22);
+    padding:8px 16px;border-radius:999px;font-size:13.5px;font-weight:600;
+  }
+  .cat-jump a:hover{background:rgba(255,255,255,0.18);}
+  .cat-section{padding:64px 0 0;}
+  .cat-section:last-child{padding-bottom:80px;}
+  .cat-section .section-head{margin-bottom:32px;}
+  .cat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  .cat-grid.cols-3{grid-template-columns:repeat(3,1fr);}
+  .cat-card{
+    --c:var(--blue-600);--soft:#eaf3fc;
+    background:var(--soft);
+    border:1px solid color-mix(in srgb,var(--c) 22%,#fff);
+    border-radius:var(--radius);
+    padding:22px 22px 24px;
+  }
+  .cat-card.green{--c:#1b7f4b;--soft:#e8f6ee;}
+  .cat-card.red{--c:#d0272f;--soft:#fdecec;}
+  .cat-card.amber{--c:#d9730d;--soft:#fff3d6;}
+  .cat-card.wide{grid-column:1/-1;}
+  .cat-card .head{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+  .cat-num{
+    flex:none;width:40px;height:40px;border-radius:50%;
+    background:var(--c);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Poppins',sans-serif;font-weight:700;font-size:18px;
+  }
+  .cat-card h3{margin:0;font-size:16px;text-transform:uppercase;letter-spacing:.01em;color:var(--navy-900);}
+  .cat-card h3 em{font-style:normal;color:var(--c);}
+  .cat-card p{margin:0 0 10px;color:var(--ink-600);font-size:14.5px;}
+  .cat-card p:last-child{margin-bottom:0;}
+  .cat-card .eg{
+    display:inline-block;margin:0 0 12px;
+    background:var(--c);color:#fff;
+    font-size:13px;font-weight:600;
+    padding:5px 12px;border-radius:8px;
+  }
+  .flow{display:flex;align-items:stretch;gap:10px;flex-wrap:wrap;margin:14px 0;}
+  .fs{
+    flex:1 1 150px;
+    background:#fff;border:1px solid var(--line);border-radius:10px;
+    padding:11px 13px;font-size:13.5px;line-height:1.4;color:var(--ink-900);
+    position:relative;
+  }
+  .fs b{display:block;font-weight:700;}
+  .fs small{display:block;color:var(--ink-500);font-size:12.5px;margin-top:2px;}
+  .fs.info{background:#e3effc;border-color:#bcd7f3;}
+  .fs.ok{background:#e1f4e9;border-color:#b6e0c7;}
+  .fs.warn{background:#fff0c9;border-color:#f3d98a;}
+  .fs.danger{background:#fde3e4;border-color:#f6b9bc;}
+  .fs-n{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:22px;height:22px;border-radius:50%;
+    background:#1b7f4b;color:#fff;font-size:12px;font-weight:700;margin-right:6px;
+  }
+  .arr{flex:none;display:flex;align-items:center;justify-content:center;color:var(--red-600);}
+  .arr svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;}
+  .cat-card:not(.wide) .flow{flex-direction:column;align-items:stretch;}
+  .cat-card:not(.wide) .fs{flex:0 0 auto;}
+  .cat-card:not(.wide) .arr{flex-basis:auto;}
+  .cat-card:not(.wide) .arr svg{transform:rotate(90deg);width:20px;height:20px;}
+  .rooms{list-style:none;margin:6px 0 4px;padding:0;display:flex;flex-wrap:wrap;gap:7px;}
+  .rooms li{
+    background:#fff;border:1px solid var(--line);border-radius:8px;
+    padding:5px 11px;font-size:13px;font-weight:600;color:var(--ink-600);
+  }
+  .rooms li.hl{border-color:var(--red-600);color:var(--red-600);background:var(--red-50);}
+  .result-bar{
+    margin-top:14px;
+    background:var(--c);color:#fff;
+    border-radius:10px;padding:12px 16px;text-align:center;
+    font-weight:700;font-size:15px;
+  }
+  .result-bar small{display:block;font-weight:500;font-size:13px;opacity:.92;}
+  .verdict{
+    display:flex;gap:12px;align-items:flex-start;
+    margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:10px;
+    padding:12px 14px;font-size:14px;color:var(--ink-600);
+  }
+  .verdict svg{flex:none;width:22px;height:22px;margin-top:1px;fill:none;stroke:var(--c);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+  .kesimpulan{
+    margin-top:26px;
+    background:#fff3d6;border:1px solid #f1dc9c;border-radius:var(--radius);
+    padding:22px;
+    display:grid;grid-template-columns:200px 1fr;gap:22px;align-items:start;
+  }
+  .kesimpulan .k-title{
+    background:var(--navy-900);color:#fff;border-radius:12px;padding:18px;text-align:center;
+  }
+  .kesimpulan .k-title strong{display:block;font-family:'Poppins',sans-serif;font-size:20px;letter-spacing:.03em;}
+  .kesimpulan .k-title span{display:block;margin-top:4px;font-size:13px;color:#ffd84d;font-weight:600;}
+  .kesimpulan ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .kesimpulan li{font-size:14px;color:var(--ink-900);line-height:1.5;}
+  .kesimpulan li .cat-num{width:30px;height:30px;font-size:14px;margin-bottom:8px;}
+  .kesimpulan li:nth-child(1) .cat-num{background:#1b7f4b;}
+  .kesimpulan li:nth-child(2) .cat-num{background:var(--blue-600);}
+  .kesimpulan li:nth-child(3) .cat-num{background:var(--red-600);}
+  .kesimpulan li strong{color:var(--red-600);}
+  @media (max-width:920px){
+    .cat-grid.cols-3{grid-template-columns:1fr;}
+    .kesimpulan{grid-template-columns:1fr;}
+    .kesimpulan ol{grid-template-columns:1fr;}
+  }
+  @media (max-width:720px){
+    .cat-grid{grid-template-columns:1fr;}
+    .arr svg{transform:rotate(90deg);}
+    .arr{flex-basis:100%;}
+    .sticky-note{transform:rotate(-2deg);}
+  }
+
+  .nav-links a{white-space:nowrap;}
+  .brand .text-block{white-space:nowrap;}
+  @media (max-width:1240px){
+    .nav-links{
+      position:absolute;
+      top:72px;left:0;right:0;
+      background:var(--navy-900);
+      flex-direction:column;
+      align-items:stretch;
+      padding:10px 20px 20px;
+      display:none;
+      box-shadow:0 12px 20px -10px rgba(0,0,0,0.4);
+    }
+    .nav-links.open{display:flex;}
+    .nav-links a{width:100%;}
+    .nav-links .cta{margin-left:0;}
+    .nav-toggle{display:block;}
+  }
+
   /* ---------- Help / contact band ---------- */
   .help-band{
     background:linear-gradient(135deg,var(--navy-900),var(--navy-800));
@@ -530,11 +758,13 @@
       <a href="#langkah">Langkah-Langkah</a>
       <a href="#bantuan">Bantuan</a>
       <a href="unduhan/DOKUMEN-PENDUKUNG.7z" download="DOKUMEN-PENDUKUNG.7z">Dokumen Pendukung</a>
+      <a href="#catatan-sarpras" id="navCatatan">Catatan Sarpras</a>
       <a class="cta" href="https://sp.datadik.kemendikdasmen.go.id" target="_blank" rel="noopener">Buka Portal Sarpras</a>
     </nav>
   </div>
 </header>
 
+<div id="page-home">
 <!-- Hero -->
 <section class="hero" id="top">
   <div class="container">
@@ -646,6 +876,86 @@
         <span class="example">Fisik bangunan &ne; penempatan rombel</span>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- Persyaratan Dokumen -->
+<section id="persyaratan">
+  <div class="container">
+    <div class="section-head">
+      <span class="tag">Dokumen</span>
+      <h2>Persyaratan Dokumen</h2>
+      <p>Berdasarkan objek pengajuan Dapodik. Siapkan dokumen pendukung sesuai objek (tanah, bangunan, atau ruang) dan jenis pengajuan sebelum memulai langkah-langkah di bawah.</p>
+    </div>
+
+    <div class="doc-stack">
+      <div class="doc-card tanah">
+        <div class="doc-card-head"><h3>Dokumen Pengajuan Data Tanah</h3></div>
+        <div class="doc-table-wrap">
+          <table class="doc-table">
+            <thead><tr><th scope="col">No.</th><th scope="col">Dokumen Pendukung</th><th scope="col">Penambahan</th><th scope="col">Perbaikan</th><th scope="col">Penghapusan</th></tr></thead>
+            <tbody>
+            <tr><td>1</td><td>Sertifikat Tanah</td><td class="yes"><span class="chk" role="img" aria-label="Wajib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td></tr>
+            <tr><td>2</td><td>Foto Lahan</td><td class="yes"><span class="chk" role="img" aria-label="Wajib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td></tr>
+            <tr><td>4</td><td>Denah Sekolah</td><td class="yes"><span class="chk" role="img" aria-label="Wajib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td></tr>
+            <tr><td>5</td><td>Surat BPKAD/Yayasan</td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td><td class="yes"><span class="chk" role="img" aria-label="Wajib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></td></tr>
+            <tr><td>6</td><td>Surat Keterangan Kasek</td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td><td class="yes"><span class="chk" role="img" aria-label="Wajib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></td><td class="yes"><span class="chk" role="img" aria-label="Wajib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="doc-card bangunan">
+        <div class="doc-card-head"><h3>Dokumen Pengajuan Data Bangunan</h3></div>
+        <div class="doc-table-wrap">
+          <table class="doc-table">
+            <thead><tr><th scope="col">No.</th><th scope="col">Dokumen Pendukung</th><th scope="col">Penambahan</th><th scope="col">Perbaikan</th><th scope="col">Penghapusan</th></tr></thead>
+            <tbody>
+            <tr><td>1</td><td>Sertifikat Tanah</td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td></tr>
+            <tr><td>2</td><td>Foto Lahan</td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td></tr>
+            <tr><td>3</td><td>Foto Bangunan</td><td class="yes"><span class="chk" role="img" aria-label="Wajib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td></tr>
+            <tr><td>4</td><td>Denah Sekolah</td><td class="yes"><span class="chk" role="img" aria-label="Wajib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td></tr>
+            <tr><td>5</td><td>Surat BPKAD/Yayasan</td><td class="yes"><span class="chk" role="img" aria-label="Wajib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td><td class="yes"><span class="chk" role="img" aria-label="Wajib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></td></tr>
+            <tr><td>6</td><td>Surat Keterangan Kasek</td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td><td class="yes"><span class="chk" role="img" aria-label="Wajib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></td><td class="yes"><span class="chk" role="img" aria-label="Wajib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="doc-card ruang">
+        <div class="doc-card-head"><h3>Dokumen Pengajuan Data Ruang</h3></div>
+        <div class="doc-table-wrap">
+          <table class="doc-table">
+            <thead><tr><th scope="col">No.</th><th scope="col">Dokumen Pendukung</th><th scope="col">Penambahan</th><th scope="col">Perbaikan</th><th scope="col">Penghapusan</th></tr></thead>
+            <tbody>
+            <tr><td>1</td><td>Sertifikat Tanah</td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td></tr>
+            <tr><td>2</td><td>Foto Lahan</td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td></tr>
+            <tr><td>3</td><td>Foto Bangunan</td><td class="yes"><span class="chk" role="img" aria-label="Wajib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td></tr>
+            <tr><td>4</td><td>Denah Sekolah</td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td></tr>
+            <tr><td>5</td><td>Surat BPKAD/Yayasan</td><td class="yes"><span class="chk" role="img" aria-label="Wajib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td></tr>
+            <tr><td>6</td><td>Surat Keterangan Kasek</td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Tidak dipersyaratkan</span></td><td class="yes"><span class="chk" role="img" aria-label="Wajib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></td><td class="yes"><span class="chk" role="img" aria-label="Wajib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-legend" aria-label="Keterangan simbol">
+      <span><span class="chk" role="img" aria-label="Wajib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span> Wajib</span>
+      <span aria-hidden="true">|</span>
+      <span><span class="dash" aria-hidden="true">&ndash;</span> Tidak Dipersyaratkan</span>
+    </div>
+
+    <div class="doc-notes">
+      <h4>Keterangan</h4>
+      <ul>
+        <li>Dokumen pendukung disesuaikan dengan objek dan jenis pengajuan.</li>
+        <li>Tanda (&ndash;) menunjukkan bahwa dokumen tersebut tidak dipersyaratkan.</li>
+        <li>Foto bangunan mencakup dokumentasi bangunan atau ruang yang menjadi objek pengajuan.</li>
+        <li>Surat BPKAD digunakan untuk satuan pendidikan negeri, sedangkan surat yayasan digunakan untuk satuan pendidikan swasta.</li>
+        <li>Dokumen diunggah sesuai format dan batas ukuran berkas yang ditentukan oleh sistem.</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -766,6 +1076,106 @@
   </div>
 </section>
 
+</div><!-- /page-home -->
+
+<!-- Halaman Catatan Sarpras (hanya tampil saat menu "Catatan Sarpras" diklik) -->
+<main id="page-catatan" hidden>
+  <header class="cat-hero">
+    <div class="container">
+      <div>
+        <h1>CATATAN <span>SARPRAS</span></h1>
+        <p>Pahami dulu sebelum mengajukan perubahan data!</p>
+        <div class="cat-jump">
+          <a href="#catatan-umum">Catatan Sarpras</a>
+          <a href="#menghapus-ruangan">Menghapus Ruangan</a>
+          <a href="#penghapusan-bangunan">Penghapusan Bangunan</a>
+        </div>
+      </div>
+      <div class="sticky-note">Teliti Data, Akurat Pengajuannya, Lancar Prosesnya</div>
+    </div>
+  </header>
+    <section class="cat-section" id="catatan-umum">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">Catatan Sarpras</span>
+          <h2>Catatan Umum Pengajuan Sarpras</h2>
+        </div>
+        <div class="cat-grid">
+        <article class="cat-card">
+          <div class="head"><span class="cat-num">1</span><h3>Pastikan ukuran tanah, gedung dan <em>ruangan sesuai aslinya</em></h3></div>
+          <p>Sesuaikan dengan kondisi nyata di lapangan agar data yang diajukan valid dan tidak bermasalah.</p>
+        </article>
+        <article class="cat-card green">
+          <div class="head"><span class="cat-num">2</span><h3>Jika mengajukan <em>lebih dari satu perubahan</em></h3></div>
+          <p>Bisa dilakukan dengan satu surat sekaligus.</p>
+        </article>
+        <article class="cat-card red">
+          <div class="head"><span class="cat-num">3</span><h3>Hati-hati dalam menghapus <em>ruang / bangunan / tanah</em></h3></div>
+          <p>Pastikan data yang dihapus sudah benar dan tidak akan digunakan lagi.</p>
+        </article>
+        <article class="cat-card amber">
+          <div class="head"><span class="cat-num">4</span><h3>Anda wajib paham dulu <em>apa itu ruang dan apa itu bangunan</em></h3></div>
+          <p>Pahami perbedaan ruang dan bangunan agar tidak salah dalam melakukan pengajuan perubahan.</p>
+        </article>
+        <article class="cat-card  wide">
+          <div class="head"><span class="cat-num">5</span><h3>Jika Anda menghapus ruang yang ada dalam 1 bangunan <em>(1 bangunan 1 ruang)</em></h3></div>
+          <p>Maka Anda bisa langsung menghapus bangunan tersebut, sehingga data ruang ikut terhapus.</p><div class="flow"><div class="fs info"><b>1 Bangunan</b><small>1 Ruang</small></div><span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="fs danger"><b>Hapus bangunan</b><small>(ruang ikut terhapus)</small></div></div><div class="result-bar">1 KALI PENGAJUAN SARPRAS<small>(Hapus Bangunan)</small></div>
+        </article>
+        <article class="cat-card green wide">
+          <div class="head"><span class="cat-num">6</span><h3>Jika Anda menghapus ruang yang berada di bangunan lain yang digunakan oleh beberapa ruang</h3></div>
+          <p>Maka alurnya adalah sebagai berikut:</p><div class="flow"><div class="fs warn"><b><span class="fs-n">1</span>Tambah Bangunan Dummy dulu</b></div><span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="fs info"><b><span class="fs-n">2</span>Pindahkan ruang yang mau dihapus ke Bangunan Dummy</b></div><span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="fs danger"><b><span class="fs-n">3</span>Lakukan penghapusan Bangunan Dummy</b></div></div><div class="result-bar">3 KALI PENGAJUAN SARPRAS<small>(Tambah Dummy, Pindah Ruang, Hapus Dummy)</small></div>
+        </article>
+        </div>
+      </div>
+    </section>
+    <section class="cat-section" id="menghapus-ruangan">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">Menghapus Ruangan</span>
+          <h2>Menghapus Ruangan</h2>
+          <p>Pahami konsepnya agar tidak salah saat menghapus data di Dapodik atau aplikasi lainnya.</p>
+        </div>
+        <div class="cat-grid">
+        <article class="cat-card green">
+          <div class="head"><span class="cat-num">1</span><h3>Bangunan digunakan untuk <em>1 ruangan</em></h3></div>
+          <span class="eg">Contoh: Kantin atau Mushola yang berdiri sendiri</span><div class="flow"><div class="fs info"><b>1 Bangunan</b><small>1 Ruang (Kantin)</small></div><span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="fs warn"><b>Jika ruangan dihapus</b></div><span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="fs danger"><b>Bangunan juga dihapus</b></div></div><div class="verdict"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Karena bangunan tersebut hanya digunakan untuk 1 ruangan, maka ketika ruangan dihapus, bangunan juga bisa langsung dihapus.</span></div>
+        </article>
+        <article class="cat-card">
+          <div class="head"><span class="cat-num">2</span><h3>Bangunan digunakan untuk <em>lebih dari 1 ruangan</em></h3></div>
+          <span class="eg">Contoh: Gedung A yang berisi ruang kelas 1 sampai kelas 6 dan WC Siswa</span><div class="fs info" style="margin-bottom:8px"><b>1 Bangunan</b><small>7 Ruang (Kelas 1 &ndash; Kelas 6 + WC Siswa)</small></div><ul class="rooms"><li>Kelas 1</li><li>Kelas 2</li><li>Kelas 3</li><li>Kelas 4</li><li>Kelas 5</li><li>Kelas 6</li><li class="hl">WC Siswa</li></ul><p style="margin-top:12px"><strong>Jika ruangan WC Siswa dihapus:</strong></p><div class="flow"><div class="fs warn"><b>Pindahkan ruangan WC Siswa</b><small>ke bangunan baru bernama DUMMY</small></div><span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="fs danger"><b>Hapus bangunan DUMMY</b><small>agar ruang WC ikut terbawa terhapus</small></div></div><div class="verdict"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Karena bangunan tersebut digunakan untuk lebih dari 1 ruangan, maka ketika salah satu ruangan dihapus, ruangan tersebut harus dipindahkan ke bangunan baru bernama <strong>DUMMY</strong>.</span></div>
+        </article>
+        </div>
+      <div class="kesimpulan">
+        <div class="k-title"><strong>KESIMPULAN</strong><span>Penting untuk diperhatikan!</span></div>
+        <ol><li><span class="cat-num">1</span>Jika bangunan hanya digunakan untuk 1 ruangan, maka ketika ruangan dihapus, bangunan juga bisa langsung dihapus.</li><li><span class="cat-num">2</span>Jika bangunan digunakan untuk lebih dari 1 ruangan, maka ketika salah satu ruangan dihapus, ruangan tersebut harus dipindahkan ke bangunan baru bernama DUMMY. <strong>Selanjutnya lakukan penghapusan bangunan DUMMY tersebut agar ruangan ikut terbawa terhapus.</strong></li><li><span class="cat-num">3</span>Tidak ada menu hapus ruangan, yang ada adalah hapus bangunannya.</li></ol>
+      </div>
+      </div>
+    </section>
+    <section class="cat-section" id="penghapusan-bangunan">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">Penghapusan Bangunan</span>
+          <h2>Penghapusan Bangunan dan Dampak terhadap Ruang di Dalamnya</h2>
+          <p>Pahami dulu sebelum menghapus data di Dapodik!</p>
+        </div>
+        <div class="cat-grid">
+        <article class="cat-card green">
+          <div class="head"><span class="cat-num">1</span><h3>Menghapus bangunan, <em>seluruh ruang juga terhapus</em></h3></div>
+          <p>Jika Anda menghapus bangunan, maka seluruh ruang yang ada di bangunan tersebut juga akan terbawa terhapus.</p><span class="eg" style="background:var(--red-600)">Contoh: Menghapus Bangunan Kantin</span><div class="flow"><div class="fs info"><b>Bangunan Kantin</b><small>Ruang di dalamnya: Ruang Kantin</small></div><span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="fs danger"><b>Bangunan dan seluruh ruang terhapus</b><small>Ruang Kantin juga terhapus</small></div></div>
+        </article>
+        <article class="cat-card">
+          <div class="head"><span class="cat-num">2</span><h3>Ada ruang yang tidak ingin dihapus, <em>pindahkan dulu ke bangunan lain</em></h3></div>
+          <p>Jika Anda ingin menghapus bangunan, tetapi ada ruang yang tidak ingin dihapus, maka ruang tersebut harus dipindahkan dulu ke bangunan lain agar tidak terbawa terhapus.</p><span class="eg" style="background:var(--red-600)">Contoh: Dari Gedung B, ada ruang Perpustakaan yang tidak ingin dihapus</span><div class="fs info" style="margin-bottom:8px"><b>Daftar ruang di Gedung B</b></div><ul class="rooms"><li>Kelas 7</li><li>Kelas 8</li><li class="hl">Perpustakaan</li></ul><div class="flow"><div class="fs warn"><b><span class="fs-n">1</span>Pindahkan ruang Perpustakaan ke bangunan lain</b><small>Ruang di Gedung C: Perpustakaan</small></div><span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="fs danger"><b><span class="fs-n">2</span>Setelah dipindahkan, baru Gedung B bisa dihapus</b></div><span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="fs danger"><b><span class="fs-n">3</span>Seluruh ruang Gedung B yang tersisa ikut terhapus</b><small>Kelas 7 dan Kelas 8</small></div></div>
+        </article>
+        </div>
+      <div class="kesimpulan">
+        <div class="k-title"><strong>KESIMPULAN</strong><span>Penting untuk diperhatikan!</span></div>
+        <ol><li><span class="cat-num">1</span>Jika Anda menghapus bangunan, maka seluruh ruang yang ada di bangunan tersebut juga akan terbawa terhapus.</li><li><span class="cat-num">2</span>Jika ada ruang yang tidak ingin dihapus, maka ruang tersebut harus dipindahkan dulu ke bangunan lain agar tidak terbawa terhapus.</li><li><span class="cat-num">3</span>Pastikan ketika menghapus data bangunan, ruang di dalamnya memang ruang yang akan ikut dihapus juga.</li></ol>
+      </div>
+      </div>
+    </section>
+</main>
+
 <!-- Footer -->
 <footer>
   <div class="container">
@@ -798,6 +1208,7 @@
           <li><a href="#konsep">Konsep Dasar Sarpras</a></li>
           <li><a href="#langkah">Langkah-Langkah Pengajuan</a></li>
           <li><a href="#bantuan">Bantuan &amp; Verifikasi</a></li>
+          <li><a href="#catatan-sarpras">Catatan Sarpras</a></li>
         </ul>
       </div>
 
@@ -831,6 +1242,35 @@
       navToggle.setAttribute('aria-expanded', 'false');
     });
   });
+
+  // Pengalih halaman: "Catatan Sarpras" hanya tampil saat menunya diklik
+  const pageHome = document.getElementById('page-home');
+  const pageCatatan = document.getElementById('page-catatan');
+  const navCatatan = document.getElementById('navCatatan');
+  const homeTitle = document.title;
+
+  function route() {
+    const hash = location.hash;
+    let target = null;
+    if (hash.length > 1) {
+      try { target = document.getElementById(decodeURIComponent(hash.slice(1))); } catch (e) {}
+    }
+    const showCatatan = hash === '#catatan-sarpras' || (target && pageCatatan.contains(target));
+    pageCatatan.hidden = !showCatatan;
+    pageHome.hidden = !!showCatatan;
+    navCatatan.classList.toggle('active', !!showCatatan);
+    if (showCatatan) navCatatan.setAttribute('aria-current', 'page');
+    else navCatatan.removeAttribute('aria-current');
+    document.title = showCatatan ? 'Catatan Sarpras \u2014 SOP SARPRAS 2026/2027' : homeTitle;
+
+    if (target && hash !== '#catatan-sarpras') {
+      requestAnimationFrame(() => target.scrollIntoView());
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  }
+  window.addEventListener('hashchange', route);
+  route();
 </script>
 
 </body>
