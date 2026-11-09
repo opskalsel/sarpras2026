@@ -424,7 +424,8 @@
 
   /* ---------- Persyaratan Dokumen ---------- */
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
-  #persyaratan{padding-top:0;}
+  #persyaratan{padding-top:0;scroll-margin-top:90px;}
+  .doc-download{max-width:900px;margin:26px auto 0;display:flex;justify-content:center;}
   .doc-stack{max-width:900px;margin:0 auto;display:grid;gap:26px;}
   .doc-card{
     --c:#0f9d8a;--c-soft:#e3f6f3;
@@ -755,10 +756,10 @@
     <button class="nav-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false"><span></span></button>
     <nav class="nav-links" id="navLinks">
       <a href="#konsep">Konsep Dasar</a>
+      <a href="#persyaratan">Dokumen</a>
       <a href="#langkah">Langkah-Langkah</a>
-      <a href="#bantuan">Bantuan</a>
-      <a href="unduhan/DOKUMEN-PENDUKUNG.7z" download="DOKUMEN-PENDUKUNG.7z">Dokumen Pendukung</a>
       <a href="#catatan-sarpras" id="navCatatan">Catatan Sarpras</a>
+      <a href="#bantuan">Bantuan</a>
       <a class="cta" href="https://sp.datadik.kemendikdasmen.go.id" target="_blank" rel="noopener">Buka Portal Sarpras</a>
     </nav>
   </div>
@@ -956,6 +957,13 @@
         <li>Surat BPKAD digunakan untuk satuan pendidikan negeri, sedangkan surat yayasan digunakan untuk satuan pendidikan swasta.</li>
         <li>Dokumen diunggah sesuai format dan batas ukuran berkas yang ditentukan oleh sistem.</li>
       </ul>
+    </div>
+
+    <div class="doc-download">
+      <a class="btn btn-primary" href="unduhan/DOKUMEN-PENDUKUNG.7z" download="DOKUMEN-PENDUKUNG.7z">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/></svg>
+        Unduh Dokumen Pendukung
+      </a>
     </div>
   </div>
 </section>
